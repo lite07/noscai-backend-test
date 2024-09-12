@@ -1,0 +1,16 @@
+{
+  "name": "noscai",
+  "version": "1.0.0",
+  "description": "Backend test for noscai",
+  "main": "app.js",
+  "scripts": {
+    "serve": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zaky.yudhar@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "pdfkit": "^0.15.0"
+  }
+}
