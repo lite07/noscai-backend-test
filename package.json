@@ -1,15 +1,25 @@
 {
-  "name": "noscai",
-  "version": "1.0.0",
-  "description": "Backend test for noscai",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "zaky.yudhar@gmail.com",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.21.0",
-    "pdfkit": "^0.15.0"
-  }
+   "name": "noscai",
+   "version": "1.0.0",
+   "description": "Backend test for noscai",
+   "main": "src/index.ts",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "author": "zaky.yudhar@gmail.com",
+   "license": "ISC",
+   "dependencies": {
+      "express": "^4.21.0",
+      "pdfkit": "^0.15.0",
+      "pg": "^8.4.0",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.20"
+   },
+   "devDependencies": {
+      "ts-node": "10.9.1",
+      "@types/node": "^16.11.10",
+      "typescript": "4.5.2"
+   }
 }
