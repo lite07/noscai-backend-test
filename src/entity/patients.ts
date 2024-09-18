@@ -6,13 +6,15 @@ export class Patients {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
-    firstName: string
+    @Column({ type: "varchar", length: 255, nullable: false})
+    name: string
 
-    @Column()
-    lastName: string
+    @Column({ type: "date", nullable: false})
+    dateOfBirth: Date
 
-    @Column()
-    age: number
+    @Column({ type: "varchar", length: 255, nullable: true })
+    insuranceNumber: string
 
+    @Column({ type: "jsonb", default: {} })
+    metadata: Record<string, any>
 }

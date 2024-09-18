@@ -11,6 +11,8 @@ services:
     depends_on:
       noscai-postgres:
         condition: service_healthy
+    volumes:
+      - .:/app
 
   noscai-postgres:
     image: postgres
