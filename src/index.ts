@@ -1,18 +1,19 @@
 import { appDataSource } from "./data-source"
+import * as patient from "./routers/patient-router"
+
 const express = require('express')
 const app = express()
 const port = 3000
 
 appDataSource.initialize().then(() => {
-  console.log("Database initialized")
+  console.info("Database initialized")
 }).catch(() => {
-  console.log("Error when initializing database")
+  console.error("Error when initializing database")
 })
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(express.json());
+app.use('/api/patients', patient)
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })
