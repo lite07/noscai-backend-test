@@ -2,15 +2,16 @@ import { Request, Response } from "express";
 import { PatientRepository } from "../repositories/patient-repository";
 import { appDataSource } from "../data-source";
 import { Patient } from "../entity/patient";
+import { EntityNotFoundError } from "typeorm";
 
 export class PatientsController {
-    static getPatients = async function getPatients(_req: Request, res: Response) {
+    static async getPatients(_req: Request, res: Response) {
         try{
             const patientsData = await new PatientRepository(appDataSource.getRepository(Patient)).getAllPatient();
 
             res.status(200).json({ data: patientsData })
         }catch(ex){
-            res.status(500).json({ message: ex })
+            res.status(500).json({ message: ex.message })
         }
     }
 
@@ -28,7 +29,17 @@ export class PatientsController {
             res.status(201).json({data: patient})
         }catch(ex){
             console.error(ex);
-            res.status(500).json({message: ex})
+            res.status(500).json({message: ex.message})
+        }
+    }
+
+    static async deletePatient(req: Request, res: Response){
+        try{
+            await new PatientRepository(appDataSource.getRepository(Patient)).deletePatientById(Number(req.params['id']))
+
+            res.status(200).json({ message: "Ok" })
+        }catch(ex){
+            res.status(500).json({ message: ex.message })
         }
     }
 }

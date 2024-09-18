@@ -24,4 +24,8 @@ export class PatientRepository {
                              })
                              .execute()
     }
+
+    public async deletePatientById(id: number) {
+        await this.repository.delete(id)
+    }
 }

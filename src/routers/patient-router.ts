@@ -5,5 +5,6 @@ const router = express.Router()
 
 router.get('/', PatientsController.getPatients)
 router.post('/', PatientsController.createPatient)
+router.delete('/:id', PatientsController.deletePatient)
 
 module.exports = router
