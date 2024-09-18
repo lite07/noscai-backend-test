@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Schein } from "./schein"
 
 @Entity()
-export class Patients {
+export class Patient {
 
     @PrimaryGeneratedColumn()
     id: number
@@ -17,4 +18,7 @@ export class Patients {
 
     @Column({ type: "jsonb", default: {} })
     metadata: Record<string, any>
+
+    @OneToMany(() => Schein, (schein) => schein.patient)
+    scheinReports: Schein[]
 }

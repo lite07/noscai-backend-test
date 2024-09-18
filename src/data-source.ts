@@ -1,7 +1,8 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { Patients } from "./entity/patients"
-import { Doctors } from "./entity/doctors"
+import { Patient } from "./entity/patient"
+import { Doctor } from "./entity/doctor"
+import { Schein } from "./entity/schein"
 
 
 export const appDataSource = new DataSource({
@@ -13,7 +14,7 @@ export const appDataSource = new DataSource({
     database: "noscai_db",
     synchronize: true,
     logging: false,
-    entities: [Patients, Doctors],
+    entities: [Patient, Doctor, Schein],
     migrations: [],
     subscribers: [],
 })
