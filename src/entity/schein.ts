@@ -11,6 +11,9 @@ export class Schein {
     @Column({ type: "varchar", length: 255, nullable: false, unique: true })
     type: string
 
+    @Column({ type: "varchar", length: 255, nullable: false })
+    template: string
+
     @Column({ type: "jsonb", name: "validation_rules", default: {}})
     validationRules: Record<string, any>
 

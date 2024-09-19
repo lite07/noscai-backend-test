@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { PatientRepository } from "../repositories/patient-repository";
 import { appDataSource } from "../data-source";
 import { Patient } from "../entity/patient";
-import { EntityNotFoundError } from "typeorm";
 
 export class PatientsController {
     static async getPatients(_req: Request, res: Response) {
