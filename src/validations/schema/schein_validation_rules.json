@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScheinValidationRules",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "isRequired": {
+        "type": "boolean"
+      },
+      "source": {
+        "enum": ["request", "patient", "doctor"]
+      },
+      "field": {
+        "type": "string"
+      }
+    },
+    "required": ["isRequired", "source", "field"]
+  } 
+}

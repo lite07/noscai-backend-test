@@ -11,6 +11,7 @@
    "author": "zaky.yudhar@gmail.com",
    "license": "ISC",
    "dependencies": {
+      "ajv": "^8.17.1",
       "class-transformer": "^0.5.1",
       "class-validator": "^0.14.1",
       "express": "^4.21.0",

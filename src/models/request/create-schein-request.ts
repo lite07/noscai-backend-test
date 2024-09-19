@@ -1,5 +1,5 @@
 import { Expose } from "class-transformer";
-import { IsObject, IsString } from "class-validator";
+import { IsArray, IsObject, IsString } from "class-validator";
 
 export class CreateScheinRequest{
   
@@ -9,7 +9,7 @@ export class CreateScheinRequest{
   @IsString()
   template: string
 
-  @IsObject()
+  @IsArray()
   @Expose({name: "validation_rules"})
   validationRules: Record<string, any>
 }

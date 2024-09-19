@@ -1,6 +1,6 @@
 import { appDataSource } from "./data-source"
 import * as patient from "./routers/patient-router"
-import * as scheint from "./routers/schein-router"
+import * as schein from "./routers/schein-router"
 
 const express = require('express')
 const app = express()
@@ -14,7 +14,7 @@ appDataSource.initialize().then(() => {
 
 app.use(express.json());
 app.use('/api/patients', patient)
-app.use('/api/scheints', scheint)
+app.use('/api/scheins', schein)
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)

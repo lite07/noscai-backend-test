@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { PatientRepository } from "../repositories/patient-repository";
 import { appDataSource } from "../data-source";
 import { Patient } from "../entity/patient";
+import { ResponseUtils } from "../utils/response";
 
 export class PatientsController {
     static async getPatients(_req: Request, res: Response) {
@@ -10,7 +11,7 @@ export class PatientsController {
 
             res.status(200).json({ data: patientsData })
         }catch(ex){
-            res.status(500).json({ message: ex.message })
+            ResponseUtils.handleInternalServerError(ex, res)
         }
     }
 
@@ -27,8 +28,7 @@ export class PatientsController {
 
             res.status(201).json({data: patient})
         }catch(ex){
-            console.error(ex);
-            res.status(500).json({message: ex.message})
+            ResponseUtils.handleInternalServerError(ex, res)
         }
     }
 
@@ -38,7 +38,7 @@ export class PatientsController {
 
             res.status(200).json({ message: "Ok" })
         }catch(ex){
-            res.status(500).json({ message: ex.message })
+            ResponseUtils.handleInternalServerError(ex, res)
         }
     }
 }
