@@ -1,7 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 import { Schein } from "./schein"
+import { ScheinReport } from "./scheinReport"
 
-@Entity()
+@Entity({name: "patients"})
 export class Patient {
 
     @PrimaryGeneratedColumn()
@@ -10,15 +11,15 @@ export class Patient {
     @Column({ type: "varchar", length: 255, nullable: false})
     name: string
 
-    @Column({ type: "date", nullable: false})
+    @Column({ type: "date", name: "date_of_birth", nullable: false})
     dateOfBirth: Date
 
-    @Column({ type: "varchar", length: 255, nullable: true })
+    @Column({ type: "varchar", name: "insurance_number", length: 255, nullable: true })
     insuranceNumber: string
 
     @Column({ type: "jsonb", default: {} })
     metadata: Record<string, any>
 
-    @OneToMany(() => Schein, (schein) => schein.patient)
-    scheinReports: Schein[]
+    @OneToMany(() => ScheinReport, (report) => report.patient)
+    scheinReports: ScheinReport[]
 }

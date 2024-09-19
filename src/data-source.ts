@@ -3,6 +3,7 @@ import { DataSource } from "typeorm"
 import { Patient } from "./entity/patient"
 import { Doctor } from "./entity/doctor"
 import { Schein } from "./entity/schein"
+import { ScheinReport } from "./entity/scheinReport"
 
 
 export const appDataSource = new DataSource({
@@ -14,7 +15,7 @@ export const appDataSource = new DataSource({
     database: "noscai_db",
     synchronize: true,
     logging: false,
-    entities: [Patient, Doctor, Schein],
+    entities: [Patient, Doctor, Schein, ScheinReport],
     migrations: [],
     subscribers: [],
 })
